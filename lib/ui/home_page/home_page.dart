@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_events_app/model/category.dart';
 import 'package:local_events_app/styleguide.dart';
+import 'package:local_events_app/ui/home_page/category_widget.dart';
 import 'package:local_events_app/ui/home_page/home_page_background.dart';
 
 class HomePage extends StatelessWidget {
@@ -47,6 +49,15 @@ class HomePage extends StatelessWidget {
                       style: whiteHeadingTextStyle,
                     ),
                   ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        for (final category in categories)
+                          CategoryWidget(category: category)
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
